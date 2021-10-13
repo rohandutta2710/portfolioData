@@ -1,1 +1,1 @@
-web:node portfolioData\backend.js
+web:node backend.js
