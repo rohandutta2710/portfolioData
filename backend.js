@@ -11,9 +11,6 @@ const filePath = "./database.json";
 let jsonData = fs.readFileSync(filePath, "utf-8");
 jsonData = JSON.parse(jsonData);
 
-app.get("/", (req, res) => {
-   res.json(jsonData);
-})
 app.get("/:api", (req, res) => {
     if(req.params.api === "rdxcontact"){
         res.json(jsonData);
@@ -29,6 +26,6 @@ app.post("/contact", (req, res) => {
     fs.writeFileSync(filePath, JSON.stringify(jsonData));
     res.send("<h1> Response is saved. Rohan Dutta will reach you asap.<br><a href='http://192.168.1.109:3000'>Back to page</a></h1>");
 })
-app.listen(ports, () => { //192.168.1.109
+app.listen(ports, () => { 
     console.log("Server is running.")
 })
