@@ -4,7 +4,7 @@ app.use(cors)
 const app = express();
 const fs = require("fs")
 const bodyParser = require("body-parser")
-const ports = process.env.PORT || 4000 ;
+const ports = process.env.PORT || 5000 ;
 // middlewares
 app.use(express.json())
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -31,6 +31,6 @@ app.post("/contact", (req, res) => {
     fs.writeFileSync(filePath, JSON.stringify(jsonData));
     res.send("<h1> Response is saved. Rohan Dutta will reach you asap.<br><a href='http://192.168.1.109:3000'>Back to page</a></h1>");
 })
-app.listen(ports, "localhost", () => { //192.168.1.109
+app.listen(ports, () => { //192.168.1.109
     console.log("Server is running.")
 })
