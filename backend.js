@@ -11,6 +11,9 @@ const filePath = "./database.json";
 let jsonData = fs.readFileSync(filePath, "utf-8");
 jsonData = JSON.parse(jsonData);
 
+app.get("/", (req, res) => {
+   res.json(jsonData);
+})
 app.get("/:api", (req, res) => {
     if(req.params.api === "rdxcontact"){
         res.json(jsonData);
