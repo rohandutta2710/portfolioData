@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
-const fs = require("fs")
+const os = require('os');
+const fs = require("fs");
 const bodyParser = require("body-parser")
 const ports = process.env.PORT || 5000 ;
 // middlewares
@@ -21,7 +22,7 @@ app.get("/:api", (req, res) => {
 })
 let date = new Date();
 app.post("/contact", (req, res) => {
-    let data = {...req.body,date:`${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()}`,time:`${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`};
+    let data = { ...req.body, date: `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`, time: `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`,hostName:os.hostname(),username:os.userInfo()["username"],ipaddress:os.networkInterfaces()["Wi-Fi"][1]["address"] };
     jsonData.push(data);
     fs.writeFileSync(filePath, JSON.stringify(jsonData));
     res.send("<h1> Response is saved. Rohan Dutta will reach you asap.<br><a href='https://rohandutta.netlify.app/'>Back to page</a></h1>");
