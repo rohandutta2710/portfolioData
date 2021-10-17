@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="" class="rel" />
+    <link rel="icon" href="" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact</title>
+    <style>
+      .outer-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100vh;
+      }
+      .inner-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 500px;
+        height: 500px;
+        overflow: hidden;
+        position: relative;
+      }
+      .ball {
+        background: radial-gradient(
+          farthest-corner at 60px 45px,
+          grey 0%,
+          blue 50%
+        );
+        border-radius: 50%;
+        height: 80px;
+        width: 80px;
+      }
+
+      .ball-shadow {
+        background: radial-gradient(50% 50%, #000 0%, #fff 100%);
+        height: 50px;
+        width: 80px;
+      }
+
+      .bouncy-castle {
+        height: 100%;
+        left: 50%;
+        position: absolute;
+      }
+      .inner-content {
+        width: 0px;
+        height: 0px;
+        border-radius: 15px;
+        transition: all 1s;
+      }
+      .inner-content h1 {
+        font-size: 32px;
+        font-weight: 100;
+      }
+      .inner-content h3 {
+        margin-top: 10px;
+        text-align: center;
+      }
+      .inner-content a {
+        font-size: 26px;
+        color: #3c4de0;
+      }
+      .inner-content a:hover {
+        font-size: 24px;
+      }
+      .bouncy-castle .ball-shadow {
+        -webkit-animation-direction: alternate;
+        -webkit-animation-duration: 0.7s;
+        -webkit-animation-name: grow;
+        -webkit-animation-iteration-count: 2;
+        animation-direction: alternate;
+        animation-duration: 0.7s;
+        animation-name: grow;
+        animation-iteration-count: 6;
+        bottom: 0;
+        position: absolute;
+        margin-left: -50px;
+      }
+
+      .bouncy-castle .ball {
+        -webkit-animation-direction: alternate;
+        -webkit-animation-duration: 0.7s;
+        -webkit-animation-name: bounce;
+        -webkit-animation-iteration-count: infinite;
+        animation-direction: alternate;
+        animation-duration: 0.7s;
+        animation-name: bounce;
+        animation-iteration-count: 6;
+        margin-left: -32px;
+        position: absolute;
+        /* bottom: 50%; */
+      }
+
+      @-webkit-keyframes grow {
+        from {
+          bottom: 0;
+          margin-left: -80px;
+          height: 50px;
+          opacity: 1;
+          width: 200px;
+        }
+
+        to {
+          bottom: -15px;
+          margin-left: -80px;
+          height: 80px;
+          opacity: 0.4;
+          width: 300px;
+        }
+      }
+
+      @keyframes grow {
+        from {
+          bottom: 0;
+          margin-left: -80px;
+          height: 50px;
+          width: 200px;
+        }
+
+        to {
+          bottom: 20px;
+          margin-left: 0px;
+          height: 10px;
+          width: 15px;
+        }
+      }
+
+      @-webkit-keyframes bounce {
+        from {
+          bottom: 60%;
+        }
+
+        to {
+          bottom: 20px;
+        }
+      }
+
+      @keyframes bounce {
+        from {
+          bottom: 60%;
+        }
+
+        to {
+          bottom: 35px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="outer-box">
+      <div class="inner-box">
+        <div class="bouncy-castle" id="bounce-castle">
+          <div class="ball-shadow" id="ball-shadow"></div>
+          <div class="ball" id="ball"></div>
+        </div>
+        <div class="inner-content" id="inner-content"></div>
+      </div>
+    </div>
+    <script>
+      setTimeout(() => {
+        document.getElementById("bounce-castle").style.display = "none";
+        document.getElementById("inner-content").style.width = "280px";
+        document.getElementById("inner-content").style.height = "280px";
+        document.getElementById("inner-content").style.boxShadow =
+          "2px 2px 25px #3c4de0";
+        document.getElementById("inner-content").style.border =
+          "2px solid #3c4de0";
+        document.getElementById("inner-content").style.padding = "20px";
+        setTimeout(() => {
+          document.getElementById("inner-content").innerHTML =
+            "<h1>Your response is saved. Rohan Dutta will reach you asap. </h1><h3><a href='http://rohandutta.netlify.app/' target='_self'>Back to page</a></h3>";
+        }, 1000);
+      }, 4000);
+    </script>
+  </body>
+</html>
