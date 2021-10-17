@@ -28,6 +28,11 @@ app.post("/contact", (req, res) => {
         err === null || err === undefined ? console.log() : res.send(err);
     });
     // res.send("<h1> Response is saved. Rohan Dutta will reach you asap.<br><a href='http://localhost:3000/'>Back to page</a></h1>");
+//     res.sendFile("./backenpage.html", (err) => {
+//         err === null || err === undefined ? console.log() : res.send(err);
+//     });
+     res.send("<h1> Response is saved. Rohan Dutta will reach you asap.<br><a href='http://localhost:3000/'>Back to page</a></h1>");
+
 })
 app.listen(ports, () => {
     console.log("Server is running.")
