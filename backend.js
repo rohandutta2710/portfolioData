@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const app = express();
 const fs = require("fs")
 const bodyParser = require("body-parser")
@@ -24,8 +25,8 @@ app.post("/contact", (req, res) => {
     let data = { ...req.body, date: `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`, time: `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}` };
     jsonData.push(data);
     fs.writeFileSync(filePath, JSON.stringify(jsonData));
-     res.sendFile("./backenpage.html");
-   
+    res.sendFile(path.join(__dirname,"./backenpage.html"));
+    res.send("<h1> Response is saved. Rohan Dutta will reach you asap.<br><a href='http://localhost:3000/'>Back to page</a></h1>");
 })
 app.listen(ports, () => {
     console.log("Server is running.")
